@@ -1,0 +1,27 @@
+CREATE TABLE Book (
+    key TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    author TEXT NOT NULL,
+    imageUrl TEXT,
+    publishedDate TEXT,
+    description TEXT
+);
+
+selectAll:
+SELECT * FROM Book;
+
+insertBook:
+INSERT INTO Book(key, title, author, imageUrl, publishedDate)
+VALUES (:key, :title, :author, :imageUrl, :publishedDate);
+
+updateBookDetails:
+UPDATE Book
+SET description = :description
+WHERE key = :key;
+
+deleteAll:
+DELETE FROM Book;
+
+selectByKey:
+SELECT * FROM Book
+WHERE key = :key;
